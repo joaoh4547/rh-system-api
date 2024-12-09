@@ -1,8 +1,7 @@
 package com.github.joaoh4547.rhsystem.rhsystemapi.services.colaboradores.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -26,31 +25,38 @@ public class Colaborador {
 
     @Column(name = "nome", nullable = false)
     @Size(min = 10, max = 100)
+    @NotBlank
     private String nome;
 
     @Column(name = "cpf", nullable = false)
     @Size(min = 11, max = 11)
+    @NotBlank
     private String cpf;
 
     @Column(name = "rg", nullable = false)
     @Size(min = 9, max = 9)
+    @NotBlank
     private String rg;
 
     @Column(name = "data_nascimento", nullable = false)
+    @NotNull
+    @Past
     private LocalDate dataNascimento;
 
     @Column(name = "email", nullable = false)
     @Email
     @Size(min = 5, max = 100)
+    @NotBlank
     private String email;
 
     @Column(name = "telefone")
     @Size(min = 10, max = 15)
+    @NotBlank
     private String telefone;
 
     @Column(name = "ativo", nullable = false)
     @ColumnDefault("true")
-    private Boolean ativo;
+    private Boolean ativo = Boolean.TRUE;
 
     @CreationTimestamp
     @Column(name = "data_criacao", nullable = false, updatable = false)

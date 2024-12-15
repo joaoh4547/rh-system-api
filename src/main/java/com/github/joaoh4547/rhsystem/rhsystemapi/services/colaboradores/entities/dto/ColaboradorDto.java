@@ -14,21 +14,7 @@ public record ColaboradorDto(UUID id, String nome,
                              String rg, LocalDate dataNascimento,
                              String email,
                              String telefone, Boolean ativo,
-                             LocalDateTime dataCriacao, LocalDateTime dataAtualizacao)
+                             LocalDateTime dataCriacao, LocalDateTime dataAtualizacao) {
 
-{
-
-    public static ColaboradorDto from(Colaborador colaborador) {
-        return new ColaboradorDto(colaborador.getId(),
-                                  colaborador.getNome(),
-                                  colaborador.getCpf(),
-                                  colaborador.getRg(),
-                                  colaborador.getDataNascimento(),
-                                  colaborador.getEmail(),
-                                  colaborador.getTelefone(),
-                                  colaborador.getAtivo(),
-                                  colaborador.getDataCriacao(),
-                                  colaborador.getDataAtualizacao());
-    }
 
 }

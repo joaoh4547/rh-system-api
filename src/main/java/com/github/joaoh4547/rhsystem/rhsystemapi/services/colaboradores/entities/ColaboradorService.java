@@ -6,6 +6,4 @@ import java.util.UUID;
 
 public interface ColaboradorService extends BaseService<Colaborador, UUID> {
 
-
-
 }

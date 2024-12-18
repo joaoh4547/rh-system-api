@@ -8,5 +8,3 @@ updates:
   - package-ecosystem: "gradle"
     schedule:
       interval: "daily"
-      version: 2
-      target-branch: main

@@ -36,18 +36,17 @@ public abstract class GenericService<T, K> implements BaseService<T, K> {
     public T save(T obj) {
         validate(obj);
         boolean exists = false;
-        if (!getRepository().existsById(extractId(obj))) {
+        K key = extractId(obj);
+        if (key == null || !getRepository().existsById(key)) {
             validateInsert(obj);
-        }
-        else {
+        } else {
             exists = true;
             validateUpdate(obj);
         }
         T persisted = getRepository().save(obj);
         if (exists) {
             onUpdate(persisted);
-        }
-        else {
+        } else {
             onInsert(persisted);
         }
         return persisted;

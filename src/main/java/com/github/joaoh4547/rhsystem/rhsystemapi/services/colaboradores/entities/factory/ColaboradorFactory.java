@@ -8,6 +8,8 @@ import com.github.joaoh4547.rhsystem.rhsystemapi.services.colaboradores.entities
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.UUID;
+
 /**
  * <p>
  * Factory class responsible for creating instances of {@link Colaborador}.
@@ -38,6 +40,18 @@ public class ColaboradorFactory {
                 .build();
     }
 
+    public Colaborador fromCadastroDTO(CadastroColaboradorDto dto, UUID id) {
+        return ColaboradorBuilder.builder()
+                .nome(dto.nome())
+                .cpf(dto.cpf())
+                .id(id)
+                .rg(dto.rg())
+                .dataNascimento(dto.dataNascimento())
+                .email(dto.email())
+                .telefone(dto.telefone())
+                .build();
+    }
+
     /**
      * Converts a {@link Colaborador} entity into a {@link ColaboradorDto}.
      *
@@ -49,6 +63,7 @@ public class ColaboradorFactory {
                 .id(colaborador.getId())
                 .cpf(colaborador.getCpf())
                 .nome(colaborador.getNome())
+                .email(colaborador.getEmail())
                 .rg(colaborador.getRg())
                 .dataNascimento(colaborador.getDataNascimento())
                 .telefone(colaborador.getTelefone())

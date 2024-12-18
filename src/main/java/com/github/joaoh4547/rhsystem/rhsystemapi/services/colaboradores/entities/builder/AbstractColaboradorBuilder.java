@@ -70,7 +70,7 @@ public abstract class AbstractColaboradorBuilder<T> implements Builder<T> {
      * When true, the entity is considered active; otherwise, it is considered inactive.
      * Default value is true.
      */
-    protected Boolean ativo;
+    protected Boolean ativo = Boolean.TRUE;
 
     /**
      * Represents the creation date and time of the entity.
